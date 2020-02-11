@@ -1,0 +1,21 @@
+﻿@model BookDisplay
+
+<tr>
+    <td>
+        @Html.DisplayFor(displays => displays.Author)
+    </td>
+    <td>
+        <a asp-controller="Books" asp-action="Get" asp-route-id="@Model.Id">@Html.DisplayFor(displays => displays.Title)</a>
+    </td>
+    <td>
+        @Html.DisplayFor(displays => displays.Rating)
+    </td>
+    <td>
+        @Html.DisplayFor(displays => displays.Series)
+    </td>
+    <td>
+        <div class="scrollable">
+            @Html.DisplayFor(displays => displays.Description)
+        </div>
+    </td>
+</tr>

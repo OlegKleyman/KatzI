@@ -1,0 +1,47 @@
+﻿@model BookSearch
+
+<form asp-controller="Books" asp-action="SearchResults">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                <label asp-for="Author"></label>
+            </th>
+            <th>
+                <label asp-for="Title"></label>
+            </th>
+            <th>
+                <label asp-for="Rating"></label>
+            </th>
+            <th>
+                <label asp-for="Series"></label>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <input asp-for="Author"/>
+            </td>
+            <td>
+                <input asp-for="Title"/>
+            </td>
+            <td>
+                <select asp-for="Rating" asp-items="@Html.GetEnumSelectList<Rating>()">
+                    <option value=""></option>
+                </select>
+            </td>
+            <td>
+                <input asp-for="Series"/>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td>
+                <button class="btn-link">Search</button>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</form>

@@ -1,0 +1,29 @@
+﻿@model BookDisplay[]
+
+<table class="table book">
+    <thead>
+    <tr>
+        <th>
+            <label asp-for="@Model[0].Author"></label>
+        </th>
+        <th>
+            <label asp-for="@Model[0].Title"></label>
+        </th>
+        <th>
+            <label asp-for="@Model[0].Rating"></label>
+        </th>
+        <th>
+            <label asp-for="@Model[0].Series"></label>
+        </th>
+        <th>
+            <label asp-for="@Model[0].Description"></label>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var m in Model)
+    {
+        <partial model="m" name="_BookData"/>
+    }
+    </tbody>
+</table>

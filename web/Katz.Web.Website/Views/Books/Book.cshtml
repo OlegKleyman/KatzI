@@ -1,0 +1,30 @@
+﻿@model BookDisplay
+
+@{
+    ViewData["Title"] = "Book";
+}
+
+<header>
+    <img src="data:@Model.Image.MimeType;base64,@Model.Image.Base64Value" class="bookImage"/>
+</header>
+<div class="row">
+    <div class="col-1">
+        <a asp-controller="Books" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">EDIT</a>
+    </div>
+    <div class="col-11">
+        <form asp-controller="Books" asp-action="Delete" asp-route-id="@Model.Id">
+            <button class="btn btn-danger delete">
+                DELETE
+            </button>
+        </form>
+    </div>
+</div>
+<partial name="_BookDisplay" model="@new[]{Model}"/>
+
+@if (Model.RelatedBooks.Any())
+{
+    <div class="related">
+        <h2>Related Books</h2>
+        <partial name="_BookDisplay" model="@Model.RelatedBooks"/>
+    </div>
+}

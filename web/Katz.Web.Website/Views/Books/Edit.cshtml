@@ -1,0 +1,70 @@
+﻿@model UpdateBook
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add Book</h1>
+
+<header>
+    <img src="data:@Model.DisplayImage.MimeType;base64,@Model.DisplayImage.Base64Value" class="bookImage"/>
+</header>
+
+<form asp-controller="Books" asp-action="EditBook" enctype="multipart/form-data">
+    <input asp-for="DisplayImage.Base64Value" type="hidden"/>
+    <input asp-for="DisplayImage.MimeType" type="hidden"/>
+    <input asp-for="Id" type="hidden"/>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                <label asp-for="@Model.Author"></label>
+            </th>
+            <th>
+                <label asp-for="@Model.Title"></label>
+            </th>
+            <th>
+                <label asp-for="@Model.Rating"></label>
+            </th>
+            <th>
+                <label asp-for="@Model.Series"></label>
+            </th>
+            <th>
+                <label asp-for="@Model.Description"></label>
+            </th>
+            <th>
+                <label asp-for="@Model.Image"></label>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <input asp-for="Author"/>
+            </td>
+            <td>
+                <input asp-for="Title"/>
+            </td>
+            <td>
+                <input asp-for="Rating"/>
+            </td>
+            <td>
+                <input asp-for="Series"/>
+            </td>
+            <td>
+                <input asp-for="Description"/>
+            </td>
+            <td>
+                <input asp-for="Image" type="file"/>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td>
+                <button class="btn-primary">Submit</button>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</form>

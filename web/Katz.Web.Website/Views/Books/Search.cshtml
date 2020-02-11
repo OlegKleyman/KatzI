@@ -1,0 +1,13 @@
+﻿@model BookDisplay[]
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h1>Book Search</h1>
+
+<partial name="_Search" model="@new BookSearch()"/>
+
+@if (!(Model is null) && Model.Any())
+{
+    <partial name="_BookDisplay" model="@Model"/>
+}

@@ -1,0 +1,65 @@
+﻿@model AddBook
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add Book</h1>
+@Html.ValidationSummary()
+<form asp-controller="Books" asp-action="AddBook" enctype="multipart/form-data">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                <label asp-for="@Model.Author"></label>
+            </th>
+            <th>
+                <label asp-for="@Model.Title"></label>
+            </th>
+            <th>
+                <label asp-for="@Model.Rating"></label>
+            </th>
+            <th>
+                <label asp-for="@Model.Series"></label>
+            </th>
+            <th>
+                <label asp-for="@Model.Description"></label>
+            </th>
+            <th>
+                <label asp-for="@Model.Image"></label>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <input asp-for="Author"/>
+            </td>
+            <td>
+                <input asp-for="Title"/>
+            </td>
+            <td>
+                <select asp-for="Rating" asp-items="@Html.GetEnumSelectList<Rating>()">
+                    <option value="">Select a value</option>
+                </select>
+            </td>
+            <td>
+                <input asp-for="Series"/>
+            </td>
+            <td>
+                <input asp-for="Description"/>
+            </td>
+            <td>
+                <input asp-for="Image" type="file"/>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td>
+                <button class="btn-primary">Submit</button>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</form>
